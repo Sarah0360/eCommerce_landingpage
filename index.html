@@ -4,32 +4,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>QUEENICE HEALTH SOLUTIONS</title>
     <link rel="stylesheet" type="text/css" href="./style/style.css">
 
+    <!-- swiperJS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <!-- box icons -->
     <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
 
-    <!-- google fonts -->
+ <!-- External CSS for animations (optional) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- google fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+
 
 </head>
 
 <body>
     <!-- header -->
     <header>
-        <a href="" class="logo">
-            <i class='bx bxs-heart'></i>
-            Natraceutical Innovation
-        </a>
-
+        <div class="logo-container">
+            <a href="#" class="logo">
+                <img src="img/company-logo.png" alt="Company Logo" class="logo-image">
+                <div class="logo-text">
+                    <span class="logo-title">QUEENICE</span>
+                    <br>
+                    <span class="logo-subtitle">HEALTH SOLUTIONS</span>
+                </div>
+            </a>
+        </div>
+        
+        
         <ul class="navlist">
             <li>
                 <a href="" class="active">Home</a>
@@ -40,6 +51,11 @@
             <li>
                 <a href="">Products</a>
             </li>
+
+            <li>
+                <a href="">Services</a>
+            </li>
+
             <li>
                 <a href="">Blog</a>
             </li>
@@ -49,9 +65,6 @@
         </ul>
 
         <div class="nav-icons">
-            <a href="#">
-                <i class='bx bx-search'></i>
-            </a>
             <a href="#">
                 <i class='bx bx-cart'></i>
             </a>
@@ -64,305 +77,407 @@
     <section class="home" id="home">
         <div class="home-text">
             <h1>
-                Natural <span>Solutions</span> <br> to Your Health. <br> Your health Our <br> Concern
+                QUEENICE <span>HEALTH</span> SOLUTIONS
             </h1>
-            <a href="" class="btn">
-                Explore More <i class='bx bxs-right-arrow'></i>
-            </a>
-
-            <a href="" class="btn2">
-                Shop Now </i>
-            </a>
+            <p>
+                Natural Solutions to Your Health.
+            </p>
         </div>
 
         <div class="home-img">
-            <img src="img/Untitled design.png" alt="">
+            <img src="/img/Untitled design.png" alt="">
         </div>
     </section>
     <hr>
 
     <!-- about us -->
-    <section class="about" id="about">
-        <div class="about-img">
-            <img src="./img/plant-res.jpg" alt="">
+    <section class="abouts" id="about">
+        <div class="abouts-img">
+            <img src="./img/WhatsApp Image 2024-12-09 at 7.35.14 AM.jpeg" alt="Natural Remedies">
         </div>
 
-
-        <div class="about-text">
-            <h2>
-                Empowering Health, <br> Naturally!
-            </h2>
+        <div class="abouts-text">
+            <h2>Who We Are</h2>
             <p>
-                Welcome to our world of natural wellness! We're on a mission to tackle medical conditions using nature’s
-                finest remedies. Starting with anemia, we’ve developed an innovative, all-natural pharmaceutical product
-                designed to boost hemoglobin levels in just 7 days. <br>
-
-                <br>Our secret? The powerful turkey berry combined with pineapple—nature’s vitamin-rich duo—carefully
-                blended to nourish and restore your health. With each product, we aim to make natural solutions
-                accessible, effective, and life-changing. <br>
-
-                <br>Join us on this exciting journey as we continue to discover and create new ways to help you live
-                your healthiest life, naturally!
+                We are passionate advocates for holistic wellness, dedicated to leveraging the healing properties of
+                nature. Our commitment is to provide natural, effective solutions for common health challenges.
             </p>
-            <a href="" class="btn">
-                Explore Story <i class='bx bxs-right-arrow'></i>
+
+            <h2>What Do We Do?</h2>
+            <p>
+                We specialize in creating innovative, all-natural products that address health concerns, starting with
+                anemia. Our key product is a carefully formulated remedy that combines the benefits of turkey berry and
+                pineapple to enhance hemoglobin levels in just 7 days.
+            </p>
+
+            <h2>How Do We Help?</h2>
+            <p>
+                By harnessing the power of nutrient-rich plants, we aim to restore and nourish health naturally. Our
+                products are designed to be both effective and accessible, empowering you to take control of your health
+                with confidence.
+            </p>
+
+            <a href="#" class="btn" id="explore-btn">
+                Explore Our Story <i class='bx bxs-right-arrow'></i>
             </a>
         </div>
     </section>
+
+
+
+
+    <!-- Modal for About Us Description -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <div class="about-text">
+                <h2><i class='bx bx-health'></i>
+                    Empowering Health, <br> Naturally!
+                </h2>
+                <p>
+                    Welcome to our world of natural wellness! We're on a mission to tackle medical conditions using
+                    nature’s
+                    finest remedies. Starting with anemia, we’ve developed an innovative, all-natural pharmaceutical
+                    product
+                    designed to boost hemoglobin levels in just 7 days. <br>
+
+                    <br>Our secret? The powerful turkey berry combined with pineapple—nature’s vitamin-rich
+                    duo—carefully
+                    blended to nourish and restore your health. With each product, we aim to make natural solutions
+                    accessible, effective, and life-changing. <br>
+
+                    <br>Join us on this exciting journey as we continue to discover and create new ways to help you live
+                    your healthiest life, naturally!
+                </p>
+            </div>
+            <a class="bx bx-x" id="close-btn"></a>
+        </div>
+    </div>
     <hr>
 
     <!-- our products -->
-    <sesction class="shop" id="shop">
-        <div class="middle-text">
-            <h4>
-                Our Product
-            </h4>
-            <h2>Explore Our Anemia Relief Products</h2>
+        <section class="product-gallery"  id="shop">
+            <div class="middle-text">
+                <h4>
+                    Products <br>
+                    (Natraceutical Products)
+                           </h4>
+                <h2>Explore Our Products</h2>
+            </div>
+      
+          <!-- Swiper -->
+          <div class="swper-container swiper">
+            <div class="card-wrapper">
+                <ul class="card-list swiper-wrapper">
+
+                                    <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title"> Turkey berry tea bag</h2>
+                            <p class="badge">Contains only turkey-berry</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+
+                <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title">Turkey-berry Zesty Aro-mix</h2>
+                            <p class="badge">This is a blend of Cloves, peppercorns and ginger</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+        
+                <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title">Turkey-berry/Cine</h2>
+                            <p class="badge">A fine blend of turkey berry and cinnamon</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+        
+                <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title">Gin-Turkey Tea bag </h2>
+                            <p class="badge">This is our tea bag that brings you a zesty feel, invigorating freshness.</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+        
+        
+        
+                
+                <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title">Turkey-berry Aro-mix Tea bag</h2>
+                            <p class="badge">This is a mixture of turkey-berry, cloves and peppercorns</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+
+
+                <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title">Turkey Berry Fruit Tonic</h2>
+                            <p class="badge">This is our tonic, with fruity blend</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+
+                <li class="card-item swiper-slide">
+                    <div class="card-content">
+                        <div class="image-container">
+                            <img src="/img/steth&fruit.jpg" alt="" class="card-image">
+                        </div>
+                        <div class="card-details">
+                            <h2 class="card-title">Turkey Berry & Pineapple Tonic </h2>
+                            <p class="badge">This is our tonic, with fruity blend</p>
+                            <i class='bx bx-cart'></i>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat the same structure for other items -->
+                </ul>
+        
+                <div class="swiper-pagination"></div>
+        <div class="swiper-slide-button swiper-button-prev"></div>
+          <div class="swiper-slide-button swiper-button-next"></div>
+            </div>
         </div>
 
-        <div class="shop-content">
-            <div class="row">
-                <img src="/img/madara-6IfOjsRKtCg-unsplash.jpg" alt="">
+          <!-- Centered Shop Now button -->
+<div class="shop-now-container">
+    <button class="shop-now">Shop Now</button>
+</div>
 
-                <h3>
-                    Turkey Berry with Pineapple Blend
-                </h3>
-                <p>
-                    Our Turkey Berry with Pineapple Blend supports healthy blood levels naturally.
-                </p>
+        </section>
 
-                <div class="in-text">
-                    <div class="price">
-                        <h6>GHS 50</h6>
-                    </div>
-                    <div class="s-btnn">
-                        <a href="">Order now</a>
-                    </div>
-                </div>
-                <div class="top-icon">
-                    <a href="">
-                        <i class="bx bx-heart"></i>
-                    </a>
-                </div>
-            </div>
 
-            <div class="row">
-                <img src="/img/madara-6IfOjsRKtCg-unsplash.jpg" alt="">
-
-                <h3>
-                    Turkey Berry with Pineapple Blend
-                </h3>
-                <p>
-                    Our Turkey Berry with Pineapple Blend supports healthy blood levels naturally.
-                </p>
-
-                <div class="in-text">
-                    <div class="price">
-                        <h6>GHS 50</h6>
-                    </div>
-                    <div class="s-btnn">
-                        <a href="">Order now</a>
-                    </div>
-                </div>
-                <div class="top-icon">
-                    <a href="">
-                        <i class="bx bx-heart"></i>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <img src="/img/madara-6IfOjsRKtCg-unsplash.jpg" alt="">
-
-                <h3>
-                    Turkey Berry with Pineapple Blend
-                </h3>
-                <p>
-                    Our Turkey Berry with Pineapple Blend supports healthy blood levels naturally.
-                </p>
-
-                <div class="in-text">
-                    <div class="price">
-                        <h6>GHS 50</h6>
-                    </div>
-                    <div class="s-btnn">
-                        <a href="">Order now</a>
-                    </div>
-                </div>
-                <div class="top-icon">
-                    <a href="">
-                        <i class="bx bx-heart"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-
-        <div class="row-btn">
-            <a href="" class="btn">
-                All Products <i class='bx bxs-right-arrow'></i>
-            </a>
-        </div>
-    </sesction>
     <hr>
 
-    <!-- Blog -->
 
 
-    <section class="review" id="review">
-        <div class="middle-text">
-            <h4>Our Blog Post</h4>
+          <!-- Services -->
+
+    <section class="health-solutions-section">
+        <h1>QUEENICE HEALTH SERVICES</h1>
+    
+        <div class="services">
+          <!-- Diet Consultation -->
+          <div class="service-card">
+            <i class="bx bx-food-menu"></i>
+            <h3>Diet Consultation</h3>
+            <p>Our expert dietitians provide personalized diet plans tailored to your health goals.</p>
+          </div>
+    
+          <!-- Product Development -->
+          <div class="service-card">
+            <i class="bx bx-box"></i>
+            <h3>Product Development</h3>
+            <p>We specialize in developing health-related products to meet your specific needs.</p>
+          </div>
+    
+          <!-- Prevention & Treatment -->
+          <div class="service-card">
+            <i class="bx bx-heart"></i>
+            <h3>Prevention & Treatment of Non-Communicable Diseases</h3>
+            <p>We offer prevention strategies and treatment plans for chronic diseases.</p>
+          </div>
+    
+          <!-- Health Talk Delivery -->
+          <div class="service-card">
+            <i class="bx bx-volume-full"></i>
+            <h3>Health Talk Delivery</h3>
+            <p>We provide expert health talks to educate and inform on vital health issues.</p>
+          </div>
+    
+          <!-- Computing Training for the Blind -->
+          <div class="service-card">
+            <i class="bx bx-desktop"></i>
+            <h3>Computing Training for the Blind</h3>
+            <p>We empower the blind community by offering specialized computing training programs.</p>
+          </div>
+        </div>
+      </section>
+
+
+
+    
+    <!-- Blog Section -->
+    <section class="blog-section" id="blog">
+        <div class="blog-header">
+            <h4>Blog Post</h4>
             <h2>Health Knowledge</h2>
         </div>
 
-        <div class="review-content">
-            <div class="box">
-                <div>
-                    <h4>
-                        UNDERSTANDING ANEMIA </h4>
-                    <ul>
-                        The role of iron and essential nutrients <br> in preventing anemia.
-                    </ul>
-
-                    <ul>
-                        How anemia affects energy, productivity, <br> and recovery.
-                    </ul>
-                </div>
-
-                <div class="in-box">
-                    <div class="bx-img">
-                        <img src="" alt="">
-                    </div>
-                    <div class="bxx-text">
-                        <h4>Blog</h4>
-                        <h5>Anemia</h5>
-                        <div class="ratings">
-                            <a href="#"><i class="bx bx-like"></i></a>
+        <div class="container">
+            <ul class="promo-list has-scrollbar">
+                <li class="promo-item">
+                    <div class="promo-card">
+                        <div class="card-icon">
+                            <!-- Placeholder SVG for Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#ff9d2d" />
+                            </svg>
                         </div>
+                        <h3 class="h3 blogc-title">Understanding Anemia</h3>
+                        <p class="bcard-text">
+                            - The role of iron and essential nutrients in preventing anemia.<br>
+                            - How anemia affects energy, productivity, and recovery.
+                        </p>
+                        <img src="anemia.jpg" width="300" height="300" loading="lazy" alt="Understanding Anemia"
+                            class="w-100 card-banner">
                     </div>
-                </div>
-            </div>
-
-            <div class="box">
-                <div>
-                    <h4>
-                        MANAGING ANEMIA NATURALLY
-                    </h4>
-                    <ul>
-                        Varieties of turkey berry has been <br>incoperated in our products.
-                    </ul>
-
-                    <ul>
-                        The turkey berry has been processed <br>in an optimal way to retain its nutrients, <br>unlike
-                        the loss that often occurs during <br>daily home processing methods.
-                    </ul>
-                </div>
-                <div class="in-box">
-                    <div class="bx-img">
-                        <img src="" alt="">
-                    </div>
-                    <div class="bxx-text">
-                        <h4>Blog</h4>
-                        <h5>Product</h5>
-                        <div class="ratings">
-                            <a href="#"><i class="bx bx-like"></i></a>
+                </li>
+                <li class="promo-item">
+                    <div class="promo-card">
+                        <div class="card-icon">
+                            <!-- Placeholder SVG for Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#ff9d2d" />
+                            </svg>
                         </div>
+                        <h3 class="h3 blogc-title">Managing Anemia Naturally</h3>
+                        <p class="bcard-text">
+                            - Varieties of turkey berry have been incorporated into our products.<br>
+                            - The turkey berry has been processed optimally to retain its nutrients.
+                        </p>
+                        <img src="turkey-berry.jpg" width="300" height="300" loading="lazy"
+                            alt="Managing Anemia Naturally" class="w-100 card-banner">
                     </div>
-                </div>
-            </div>
-            <div class="box">
-                <div>
-                    <h4>
-                        HEALTHY LIVING FOR ANEMIA <br>PREVENTION
-                    </h4>
-                    <ul>
-                        Include folate-rich foods like leafy greens, <br>avocado, and beans to support the <br>production of red
-                        blood cells.
-                    </ul>
-
-                    <ul>
-                        Drink enough water throughout the day <br>to help the body transport nutrients and <br>maintain proper
-                        circulation.
-                    </ul>
-                    <ul>
-                        Make sure to address any food sensitivities <br>or intolerances that could impact nutrient
-                        <br>absorption.
-                    </ul>
-                </div>
-
-                <div class="in-box">
-                    <div class="bx-img">
-                        <img src="" alt="">
-                    </div>
-                    <div class="bxx-text">
-                        <h4>Blog</h4>
-                        <h5>Health Tips</h5>
-                        <div class="ratings">
-                            <a href="#"><i class="bx bx-like"></i></a>
+                </li>
+                <li class="promo-item">
+                    <div class="promo-card">
+                        <div class="card-icon">
+                            <!-- Placeholder SVG for Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" fill="none">
+                                <circle cx="30" cy="30" r="30" fill="#ff9d2d" />
+                            </svg>
                         </div>
+                        <h3 class="h3 blogc-title">Healthy Living Tips</h3>
+                        <p class="bcard-text">
+                            - Include folate-rich foods to support red blood cell production.<br>
+                            - Drink enough water throughout the day to maintain proper circulation.
+                        </p>
+                        <img src="health-tips.jpg" width="300" height="300" loading="lazy" alt="Healthy Living Tips"
+                            class="w-100 card-banner">
                     </div>
-                </div>
-            </div>
+                </li>
+            </ul>
         </div>
     </section>
+
     <hr>
 
-    <!-- contact -->
-    <section class="contact" id="contact">
-        <div class="contact-content">
-            <div class="contact-img">
-                <div class="c-one">
-                    <img src="" alt="">
-                </div>
-                <div class="c-one">
-                    <img src="/img/whatsa" alt="">
-                </div>
+    <!-- Contact Section -->
+<section class="contact" id="contact">
+    <div class="contact-content">
+        <!-- Images Section -->
+        <div class="contact-img">
+            <div class="c-one">
+                <img src="" alt="Image 1">
             </div>
-
-            <div class="contact-text">
-                <h2>Contact Us</h2>
-                <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit minima minus odio.
-                </p>
-                <div class="social">
-                    <a href="#">
-                        <i class="bx bxl-instagram-alt"></i>
-                    </a>
-                    <a href="#">
-                        <i class="bx bxl-whatsapp"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="details">
-                <div class="main-d">
-                    <a href="#">
-                        <i class="bx bxs-location-plus"> Accra, Ghana</i>
-                    </a>
-                </div>
-
-                <div class="main-d">
-                    <a href="#">
-                        <i class="bx bx-female"> Miss Bernice</i>
-                    </a>
-                </div>
-
-                <div class="main-d">
-                    <a href="#">
-                        <i class="bx bx-mobile-alt"> 0211445566</i>
-                    </a>
-                </div>
+            <div class="c-one">
+                <img src="/img/whatsa" alt="WhatsApp">
             </div>
         </div>
-    </section>
+
+        <!-- Text Content -->
+        <div class="contact-text">
+            <h2>Contact Us</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit minima minus odio. Reach out to us for any inquiries.
+            </p>
+            <div class="social">
+                <a href="#" class="social-link">
+                    <i class="bx bxl-instagram-alt"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="bx bxl-whatsapp"></i>
+                </a>
+                <!-- New Facebook Icon -->
+                <a href="#" class="social-link">
+                    <i class="bx bxl-facebook"></i>
+                </a>
+                <!-- New TikTok Icon -->
+                <a href="#" class="social-link">
+                    <i class="bx bxl-tiktok"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Contact Details Section -->
+        <div class="details">
+            <div class="main-d">
+                <a href="#">
+                    <i class="bx bxs-location-plus"></i> Accra, Ghana
+                </a>
+            </div>
+
+            <div class="main-d">
+                <a href="#">
+                    <i class="bx bx-female"></i> QUEENICE <br>HEALTH SOLUTIONS
+                </a>
+            </div>
+
+            <div class="main-d">
+                <a href="#">
+                    <i class="bx bx-mobile-alt"></i> 0211445566
+                </a>
+            </div>
+        </div>
+        <!-- Copyright Section -->
+        <div class="copyright">
+            <p>&copy; 2024 QUEENICE HEALTH SOLUTIONS. All rights reserved.</p>
+        </div>
+    </div>
+</section>
+
 
     <!-- scroll top -->
     <a href="#" class="scroll">
         <i class="bx bx-up-arrow-alt"></i>
     </a>
+    <!-- link swiperjs -->
 
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <script src="https://unpkg.com/scrollreveal"></script>
     <!-- link to js -->
-    <script src="./js/script.js"></script>
+    <script src="./js/script.js" defer></script>
 </body>
 
 </html>
