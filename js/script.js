@@ -131,18 +131,18 @@ const scr = ScrollReveal({
     reset: true
 })
 
-scr.reveal('.home-text', {delay: 200});
-scr.reveal('.home-img', {delay: 300});
-scr.reveal('.container', {delay: 300});
+scr.reveal('.home-text', {delay: 150});
+scr.reveal('.home-img', {delay: 100});
+scr.reveal('.container', {delay: 100});
 
 scr.reveal('.abouts-img', {});
 scr.reveal('.abouts-text', {delay: 200});
 
 scr.reveal('.middle-text', {});
-scr.reveal('.row-btn,.shop-content', {delay: 100});
+scr.reveal('.swper-container', {delay: 100});
 
-scr.reveal('.middle-text', {});
-scr.reveal('.review-content,.contact', {delay: 200});
+// scr.reveal('.middle-text', {});
+scr.reveal('.blog-section,.contact, .services', {delay: 100});
 
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -178,18 +178,119 @@ scrollBtn.onclick = () => {
 
 
 
-let previousWidth = window.innerWidth;
 
-window.addEventListener('resize', function () {
-    if (previousWidth !== window.innerWidth) {
-        // The screen size changed (e.g., from mobile to desktop view)
-        if (window.innerWidth >= 1024) {
-            // Apply desktop-specific changes
-            document.body.classList.add('desktop-view');
-        } else {
-            // Apply mobile-specific changes
-            document.body.classList.remove('desktop-view');
-        }
-        previousWidth = window.innerWidth;
+// let previousWidth = window.innerWidth;
+
+// window.addEventListener('resize', function () {
+//     if (previousWidth !== window.innerWidth) {
+//         // The screen size changed (e.g., from mobile to desktop view)
+//         if (window.innerWidth >= 1024) {
+//             // Apply desktop-specific changes
+//             document.body.classList.add('desktop-view');
+//         } else {
+//             // Apply mobile-specific changes
+//             document.body.classList.remove('desktop-view');
+//         }
+//         previousWidth = window.innerWidth;
+//     }
+// });
+
+/*----------------------------------*\
+    # DESKTOP RESPONSIVENESS
+\*----------------------------------*/
+
+// Ensure the site maintains a specific viewport width
+function enforceDesktopView() {
+    const viewportMeta = document.querySelector("meta[name=viewport]");
+    
+    // Check if the user is on a mobile device
+    const isMobile = window.innerWidth <= 768;
+  
+    if (isMobile) {
+      // Force the viewport width to simulate a laptop view
+      viewportMeta.setAttribute("content", "width=1200");
+    } else {
+      // Default behavior for larger screens
+      viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
     }
-});
+  }
+  
+  // Run on load
+  enforceDesktopView();
+  
+  // Reapply the behavior when the window is resized
+  window.addEventListener("resize", enforceDesktopView);
+  
+
+
+// const API_KEY = 'AIzaSyCClGTxXcef9sSbCoVy0E6oBDIjVmR_OEw'; // Your API Key
+//   const SPREADSHEET_ID = '1beF-3HdEwdEFxtoW6G5VXyxZfSy1LpDAiD_29hCeFLA'; // Your Google Sheets ID
+//   const RANGE = 'Sheet1!A1:E19'; // Range you want to pull data from (e.g., A1 to B10)
+
+// // const FULL_URL = 'https://docs.google.com/spreadsheets/d/' + SPREADSHEET_ID +
+
+//   function initApiClient() {
+//     gapi.client.init({
+//       'apiKey': API_KEY,
+//     }).then(() => {
+//       fetchSheetData();
+//     });
+//   }
+
+//   function fetchSheetData() {
+//     gapi.client.sheets.spreadsheets.values.get({
+//       spreadsheetId: SPREADSHEET_ID,
+//       range: RANGE,
+//     }).then(response => {
+//       const data = response.result.values;
+//       if (data.length > 0) {
+//         displayData(data);
+//       } else {
+//         console.log('No data found.');
+//       }
+//     });
+//   }
+
+//   function displayData(data) {
+//     let table = document.createElement('table');
+//     data.forEach(row => {
+//       let tr = document.createElement('tr');
+//       row.forEach(cell => {
+//         let td = document.createElement('td');
+//         td.textContent = cell;
+//         tr.appendChild(td);
+//       });
+//       table.appendChild(tr);
+//     });
+//     document.body.appendChild(table); // Append the table to the body or any other container
+//   }
+
+//   function loadClient() {
+//     gapi.load('client', initApiClient);
+//   }
+
+
+// function loadClient() {
+//     const deploymentUrl = "https://sheets.googleapis.com/v4/spreadsheets/1beF-3HdEwdEFxtoW6G5VXyxZfSy1LpDAiD_29hCeFLA/values/sheet1!A1:D100?key=AIzaSyCClGTxXcef9sSbCoVy0E6oBDIjVmR_OEw";
+//     fetch(deploymentUrl)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             if (data.values) {
+//                 data.values.forEach(row => {
+//                     const placeholder = row[2]; // Column C
+//                     const content = row[3]; // Column D
+//                     document.body.innerHTML = document.body.innerHTML.replace(placeholder, content);
+//                 });
+//             } else {
+//                 console.error('No values found in the data:', data);
+//             }
+//         })
+//         .catch(error => console.error('Error fetching or processing data:', error));
+// }
+
+// loadClient();
