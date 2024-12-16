@@ -199,27 +199,4 @@ scrollBtn.onclick = () => {
     # DESKTOP RESPONSIVENESS
 \*----------------------------------*/
 
-// Ensure the site maintains a specific viewport width
-function enforceDesktopView() {
-    const viewportMeta = document.querySelector("meta[name=viewport]");
-    
-    // Check if the user is on a mobile device
-    const isMobile = window.innerWidth <= 768;
-  
-    if (isMobile) {
-      // Force the viewport width to simulate a laptop view
-      viewportMeta.setAttribute("content", "width=1200");
-    } else {
-      // Default behavior for larger screens
-      viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
-    }
-  }
-  
-  // Run on load
-  enforceDesktopView();
-  
-  // Reapply the behavior when the window is resized
-  window.addEventListener("resize", enforceDesktopView);
-  
-
 
