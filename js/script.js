@@ -177,23 +177,37 @@ scrollBtn.onclick = () => {
 };
 
 
+  
+// Ensure the site maintains proper responsiveness
+function adjustViewport() {
+    const viewportMeta = document.querySelector("meta[name=viewport]");
+
+    // Check if the viewport meta tag exists
+    if (!viewportMeta) {
+        console.error("No viewport meta tag found. Add <meta name='viewport' content='width=device-width, initial-scale=1.0'> to your HTML.");
+        return;
+    }
+
+    // Dynamically set the viewport width based on device width
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        // Keep the mobile view
+        viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
+    } else {
+        // For larger screens, use desktop behavior
+        viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
+    }
+}
+
+// Run on load
+adjustViewport();
+
+// Reapply the behavior when the window is resized
+window.addEventListener("resize", adjustViewport);
 
 
-// let previousWidth = window.innerWidth;
 
-// window.addEventListener('resize', function () {
-//     if (previousWidth !== window.innerWidth) {
-//         // The screen size changed (e.g., from mobile to desktop view)
-//         if (window.innerWidth >= 1024) {
-//             // Apply desktop-specific changes
-//             document.body.classList.add('desktop-view');
-//         } else {
-//             // Apply mobile-specific changes
-//             document.body.classList.remove('desktop-view');
-//         }
-//         previousWidth = window.innerWidth;
-//     }
-// });
+
 
 /*----------------------------------*\
     # DESKTOP RESPONSIVENESS
