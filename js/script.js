@@ -11,26 +11,70 @@ window.addEventListener("scroll", function () {
     if (window.scrollY > 10) {
         header.classList.add("sticky");
 
+        // Keep link color as white when header is sticky
         navLinks.forEach(link => {
-            link.style.color = '#fff'; 
+            // Don't override the active link color
+            if (!link.classList.contains("active")) {
+                link.style.color = ''; // Sticky header link color
+            }
         });
 
-        logoTitle.style.color = 'var(--bg-color)'; 
-
-        logoSubtitle.style.color = 'var(--main-color)'; 
-
+        logoTitle.style.color = 'var(--bg-color)';
+        logoSubtitle.style.color = 'var(--main-color)';
     } else {
         header.classList.remove("sticky");
 
+        // Reset link color when header is not sticky
         navLinks.forEach(link => {
-            link.style.color = 'var(--text-color)'; 
+            if (!link.classList.contains("active")) {
+                link.style.color = ''; // Reset color
+            }
         });
 
-        // Reset logo text color
-        logoTitle.style.color = 'var(--text-color)';
-        logoSubtitle.style.color = 'var(--accent-color)';
+        logoTitle.style.color = '';
+        logoSubtitle.style.color = '';
     }
 });
+
+/*----------------------------------*\
+    # NAV ACTIVENESS
+\*----------------------------------*/
+
+// Add click event to toggle active class on links
+navLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+        // Prevent default behavior (smooth scroll)
+        e.preventDefault();
+
+        // Remove 'active' class from all links
+        navLinks.forEach(nav => nav.classList.remove('active'));
+
+        // Add 'active' class to the clicked link
+        this.classList.add('active');
+        
+        // Scroll smoothly to the section
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+        });
+    });
+});
+
+// Optional: Automatically highlight active link based on scroll position
+const sections = document.querySelectorAll('section');
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            // Remove active class from all links
+            navLinks.forEach(link => link.classList.remove('active'));
+
+            // Add active class to the link corresponding to the section in view
+            const activeLink = document.querySelector(`.navlist a[href="#${entry.target.id}"]`);
+            if (activeLink) activeLink.classList.add('active');
+        }
+    });
+}, { threshold: 0.5 }); // 50% of the section must be visible
+
+sections.forEach(section => observer.observe(section));
 
 
 /*----------------------------------*\
@@ -128,7 +172,7 @@ const scr = ScrollReveal({
     origin: 'top',
     distance: '85px',
     duration: 2500,
-    reset: true
+    reset: false
 })
 
 scr.reveal('.home-text', {delay: 150});
@@ -175,6 +219,8 @@ scrollBtn.onclick = () => {
         behavior: 'smooth' 
     });
 };
+
+
 
 
 
