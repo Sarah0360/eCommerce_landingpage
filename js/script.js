@@ -23,12 +23,12 @@ window.addEventListener("scroll", function () {
         header.classList.remove("sticky");
 
         navLinks.forEach(link => {
-            link.style.color = 'var(--text-color)'; 
+            link.style.color = ''; 
         });
 
         // Reset logo text color
-        logoTitle.style.color = 'var(--text-color)';
-        logoSubtitle.style.color = 'var(--accent-color)';
+        logoTitle.style.color = '';
+        logoSubtitle.style.color = '';
     }
 });
 
@@ -63,27 +63,26 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show the modal when the button is clicked
     exploreBtn.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent default behavior (if it's a link)
-        modalOverlay.style.display = 'flex';
+        modalOverlay.classList.remove('hidden');
         body.classList.add('modal-open'); // Disable scrolling
     });
 
     // Close the modal when the close button is clicked
     closeBtn.addEventListener('click', () => {
-        modalOverlay.style.display = 'none';
+        modalOverlay.classList.add('hidden');
         body.classList.remove('modal-open'); // Enable scrolling
     });
 
     // Close the modal when clicking outside of the modal content (optional)
     modalOverlay.addEventListener('click', (e) => {
         if (e.target === modalOverlay) {
-            modalOverlay.style.display = 'none';
+            modalOverlay.classList.add('hidden');
             body.classList.remove('modal-open'); // Enable scrolling
         }
     });
-
-    // Ensure the modal does not show on page reload
-    modalOverlay.style.display = 'none';
 });
+
+
 
 /*----------------------------------*\
     #PRODUCT SWIPER CARD
@@ -126,9 +125,9 @@ new Swiper('.card-wrapper', {
   
 const scr = ScrollReveal({
     origin: 'top',
-    distance: '85px',
+    distance: '80px',
     duration: 2500,
-    reset: true
+    reset: false,
 })
 
 scr.reveal('.home-text', {delay: 150});
@@ -179,6 +178,125 @@ scrollBtn.onclick = () => {
 
 
 
+
+
+/*----------------------------------*\
+    # DESKTOP RESPONSIVENESS
+\*----------------------------------*/
+
+  
+// Ensure the site maintains proper responsiveness
+function adjustViewport() {
+    const viewportMeta = document.querySelector("meta[name=viewport]");
+
+    // Check if the viewport meta tag exists
+    if (!viewportMeta) {
+        console.error("No viewport meta tag found. Add <meta name='viewport' content='width=device-width, initial-scale=1.0'> to your HTML.");
+        return;
+    }
+
+    // Dynamically set the viewport width based on device width
+    const isMobile = window.innerWidth <= 768;
+    if (isMobile) {
+        // Keep the mobile view
+        viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
+    } else {
+        // For larger screens, use desktop behavior
+        viewportMeta.setAttribute("content", "width=device-width, initial-scale=1.0");
+    }
+}
+
+// Run on load
+adjustViewport();
+
+// Reapply the behavior when the window is resized
+window.addEventListener("resize", adjustViewport);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// const API_KEY = 'AIzaSyCClGTxXcef9sSbCoVy0E6oBDIjVmR_OEw'; // Your API Key
+//   const SPREADSHEET_ID = '1beF-3HdEwdEFxtoW6G5VXyxZfSy1LpDAiD_29hCeFLA'; // Your Google Sheets ID
+//   const RANGE = 'Sheet1!A1:E19'; // Range you want to pull data from (e.g., A1 to B10)
+
+// // const FULL_URL = 'https://docs.google.com/spreadsheets/d/' + SPREADSHEET_ID +
+
+//   function initApiClient() {
+//     gapi.client.init({
+//       'apiKey': API_KEY,
+//     }).then(() => {
+//       fetchSheetData();
+//     });
+//   }
+
+//   function fetchSheetData() {
+//     gapi.client.sheets.spreadsheets.values.get({
+//       spreadsheetId: SPREADSHEET_ID,
+//       range: RANGE,
+//     }).then(response => {
+//       const data = response.result.values;
+//       if (data.length > 0) {
+//         displayData(data);
+//       } else {
+//         console.log('No data found.');
+//       }
+//     });
+//   }
+
+//   function displayData(data) {
+//     let table = document.createElement('table');
+//     data.forEach(row => {
+//       let tr = document.createElement('tr');
+//       row.forEach(cell => {
+//         let td = document.createElement('td');
+//         td.textContent = cell;
+//         tr.appendChild(td);
+//       });
+//       table.appendChild(tr);
+//     });
+//     document.body.appendChild(table); // Append the table to the body or any other container
+//   }
+
+//   function loadClient() {
+//     gapi.load('client', initApiClient);
+//   }
+
+
+// function loadClient() {
+//     const deploymentUrl = "https://sheets.googleapis.com/v4/spreadsheets/1beF-3HdEwdEFxtoW6G5VXyxZfSy1LpDAiD_29hCeFLA/values/sheet1!A1:D100?key=AIzaSyCClGTxXcef9sSbCoVy0E6oBDIjVmR_OEw";
+//     fetch(deploymentUrl)
+//         .then(response => {
+//             if (!response.ok) {
+//                 throw new Error(`HTTP error! status: ${response.status}`);
+//             }
+//             return response.json();
+//         })
+//         .then(data => {
+//             if (data.values) {
+//                 data.values.forEach(row => {
+//                     const placeholder = row[2]; // Column C
+//                     const content = row[3]; // Column D
+//                     document.body.innerHTML = document.body.innerHTML.replace(placeholder, content);
+//                 });
+//             } else {
+//                 console.error('No values found in the data:', data);
+//             }
+//         })
+//         .catch(error => console.error('Error fetching or processing data:', error));
+// }
+
+// loadClient();
+
+
 // let previousWidth = window.innerWidth;
 
 // window.addEventListener('resize', function () {
@@ -194,9 +312,4 @@ scrollBtn.onclick = () => {
 //         previousWidth = window.innerWidth;
 //     }
 // });
-
-/*----------------------------------*\
-    # DESKTOP RESPONSIVENESS
-\*----------------------------------*/
-
 
